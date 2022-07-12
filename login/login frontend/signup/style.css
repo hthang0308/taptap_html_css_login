@@ -1,0 +1,66 @@
+html {
+  background-color: #f5f5f5;
+}
+body {
+  background-color: #f5f5f5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+.signupbox {
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #ccc;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 8px #ccc;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.btn {
+  width: 100%;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+.btn:hover {
+  background-color: #45a049;
+  cursor: pointer;
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  display: block;
+}
+.signupheader {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 50%;
+  color: #2980b9;
+  text-decoration: none;
+}
