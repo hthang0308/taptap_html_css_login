@@ -6,6 +6,9 @@ const connectDB = require("./config/database");
 const routes = require("./routes");
 const cors = require("cors");
 
+//session
+const session = require("express-session");
+
 const port = process.env.PORT || 5000;
 
 // HTTP logger

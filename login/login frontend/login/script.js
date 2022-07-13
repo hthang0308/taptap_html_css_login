@@ -3,6 +3,7 @@ $(".loginbtn").click(function (e) {
   var data = {
     username: $("#username").val(),
     password: $("#password").val(),
+    otp: $("#otp").val(),
   };
   $.ajax({
     type: "POST",

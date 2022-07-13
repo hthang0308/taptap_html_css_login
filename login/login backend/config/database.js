@@ -8,7 +8,7 @@ const db_password = process.env.DB_PASSWORD;
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${db_username}:${db_password}@cluster0.c9us9.mongodb.net/myfirstdatabase?retryWrites=true&w=majority`
+      `mongodb+srv://${db_username}:${db_password}@cluster0.c9us9.mongodb.net/mydb?retryWrites=true&w=majority`
     );
     console.log("MongoDB connected");
   } catch (err) {

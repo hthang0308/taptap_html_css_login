@@ -1,13 +1,25 @@
 {
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-jwt": "^7.7.5",
+    "express-session": "^1.17.3",
+    "hi-base32": "^0.5.1",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.7.0",
     "mongoose": "^6.4.4",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.19"
+    "nodemailer": "^6.7.7",
+    "nodemon": "^2.0.19",
+    "otp-generator": "^4.0.0",
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.0",
+    "sqlite3": "^5.0.8",
+    "totp-generator": "^0.0.13"
   },
   "name": "login-backend",
   "version": "1.0.0",

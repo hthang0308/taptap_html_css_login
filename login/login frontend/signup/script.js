@@ -3,14 +3,17 @@ $(".signupbtn").click(function (e) {
   var data = {
     username: $("#username").val(),
     password: $("#password").val(),
+    email: $("#email").val(),
   };
   $.ajax({
     type: "POST",
     url: "http://localhost:5000/api/users/register",
     data: data,
     success: function (data) {
-      alert("Success: " + data.msg);
-      window.location.href = "../login/index.html";
+      //load qrcode.html
+      window.location.href = "../qrcode/index.html";
+      //save to local storage
+      localStorage.setItem("qrcode", data.qrcode);
     },
     error: function (err) {
       alert("Error: " + err.responseJSON.msg);
