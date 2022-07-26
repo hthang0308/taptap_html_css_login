@@ -1,0 +1,385 @@
+@import url("http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700");
+@import url("font-awesome.css");
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6em;
+  color: #656565;
+}
+
+a:active {
+  outline: 0;
+}
+
+.clear {
+  clear: both;
+}
+p {
+  font-size: 14px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.1em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+/*  Header
+==================================== */
+
+.navbar-default .navbar-brand {
+  color: #2fadde;
+}
+
+header .navbar-collapse ul.navbar-nav {
+  float: right;
+  margin-right: 0;
+}
+
+header .navbar-default {
+  background-color: #fff;
+
+  border-bottom: 2px solid #ffffff;
+}
+header .nav li.active a,
+header .nav li.active a:hover {
+  background: #99bf38 !important;
+  border-radius: 5px;
+}
+header .navbar {
+  min-height: 70px;
+  padding: 18px 0;
+}
+
+header .navbar-nav > li {
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.pageTitle {
+  color: #ffffff;
+  margin: 32px 0 3px;
+  display: inline-block;
+  position: absolute;
+  border-radius: 87%;
+  padding: 25px 33px;
+  border-left: 8px solid #fff;
+}
+/* Content
+==================================== */
+
+#content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* page headline
+==================================== */
+
+#inner-headline {
+  background: url("../img/slides/1.jpg");
+  height: 150px;
+  margin-bottom: 30px;
+}
+
+/* --- button --- */
+.btn {
+  text-align: center;
+  background: #99bf38;
+  color: #fff;
+  padding: 10px 25px;
+  border: 0;
+}
+.btn-theme {
+  color: #fff;
+}
+.btn-theme:hover {
+  color: #eee;
+}
+
+/* --- list style --- */
+
+ul.general {
+  list-style: none;
+  margin-left: 0;
+}
+
+ul.link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.link-list li {
+  margin: 0;
+  padding: 2px 0 2px 0;
+  list-style: none;
+}
+footer {
+  background: #313438;
+}
+footer ul.link-list li a {
+  color: #bbbbbb;
+}
+footer ul.link-list li a:hover {
+  color: #eee;
+}
+/* --- Heading style --- */
+
+.contactInfo {
+  background: #99bf38;
+}
+.contact-area {
+  float: right;
+  padding: 15px 0 0px;
+}
+
+.contact-area ul li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.contact-area ul li i {
+  margin-right: 10px;
+}
+
+.pricing-title {
+  background: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.pricing-title h3 {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.pricing-offer {
+  background: #fcfcfc;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 18px;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.pricing-box.activeItem .pricing-offer {
+  color: #fff;
+}
+
+.pricing-offer strong {
+  font-size: 78px;
+  line-height: 89px;
+}
+
+.pricing-offer sup {
+  font-size: 28px;
+}
+
+.pricing-container {
+  background: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+.pricing-container strong {
+  color: #353535;
+}
+
+.pricing-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-container ul li {
+  border-bottom: 1px solid #cfcfcf;
+  list-style: none;
+  padding: 15px 0 15px 0;
+  margin: 0 0 0 0;
+  color: #222;
+}
+
+.pricing-action {
+  background: #d5d5d5;
+}
+
+.pricing-wrapp {
+  margin: 0 auto;
+  width: 100%;
+  background: #fd0000;
+}
+.pricing-box-item {
+  border: 1px solid #e6e6e6;
+
+  background: #ffffff;
+  position: relative;
+  margin: 0 0 20px 0;
+  padding: 0;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.pricing-box-item .pricing-heading {
+  background: #ffffff;
+  text-align: center;
+  padding: 0px 0 0px 0;
+  display: block;
+}
+.pricing-box-item.activeItem .pricing-heading {
+  background: #ffffff;
+  text-align: center;
+  padding: 0px 0 1px 0;
+  border-bottom: none;
+  display: block;
+  color: #fff;
+}
+.pricing-box-item .pricing-heading h3 strong {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.pricing-box-item .pricing-heading h3 {
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.pricing-box-item .pricing-terms {
+  text-align: center;
+  background: #f0f0f0;
+  display: block;
+  overflow: hidden;
+  padding: 11px 0 5px;
+  border-radius: 50px;
+  color: #3f454d;
+  margin: 0 15px;
+}
+
+.pricing-box-item .pricing-terms h6 {
+  font-style: italic;
+  margin-top: 10px;
+  color: #99bf38;
+  font-size: 17px;
+  font-family: "Noto Serif", serif;
+}
+
+.pricing-box-item .icon .price-circled {
+  margin: 10px 10px 10px 0;
+  display: inline-block !important;
+  text-align: center !important;
+  color: #fff;
+  width: 68px;
+  height: 68px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 68px;
+  text-shadow: none;
+  cursor: pointer;
+  background-color: #888;
+  border-radius: 64px;
+  -moz-border-radius: 64px;
+  -webkit-border-radius: 64px;
+}
+
+.pricing-box-item .pricing-action {
+  margin: 0;
+  text-align: center;
+  padding: 30px 0 30px 0;
+}
+
+/* ===== Widgets ===== */
+
+footer {
+  padding: 0;
+  color: #a9a9a9;
+}
+footer a {
+  color: #a9a9a9;
+}
+
+ul.social-network {
+  list-style: none;
+  margin: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+#sub-footer {
+  text-shadow: none;
+  color: #a9a9a9;
+  padding: 0;
+  padding-top: 30px;
+  margin: 20px 0 0 0;
+  background: #282a2d;
+}
+
+#sub-footer p {
+  margin: 0;
+  padding: 0;
+}
+
+#sub-footer span {
+  color: #a9a9a9;
+}
+
+.copyright {
+  text-align: left;
+  font-size: 12px;
+}
+
+#sub-footer ul.social-network {
+  float: right;
+}
+
+.list.list-3 {
+  font-weight: 300;
+}
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list li {
+  padding: 2px 0;
+}
+
+.list.list-3 li:before {
+  content: "\f0a9";
+  float: left;
+  font-family: fontAwesome;
+  color: #99bf38;
+  font-size: 14px;
+  margin-top: -1px;
+  margin-right: 7px;
+  margin-left: 1px;
+}
+ul.social-network a {
+  color: #99bf38;
+}
