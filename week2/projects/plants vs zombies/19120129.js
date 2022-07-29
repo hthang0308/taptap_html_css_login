@@ -181,7 +181,7 @@ class Zombie {
     this.zombieBody.style.left = this.x + "px";
     var thisZombie = this;
     let plantSameRowLists = plantLists.filter(function (plant) {
-      return plant.y - 30 === thisZombie.y;
+      return plant.y === thisZombie.y;
     });
 
     if (plantSameRowLists.length > 0) {
