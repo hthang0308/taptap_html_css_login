@@ -61,16 +61,20 @@ let isUnit1Clicked = false;
 let isUnit2Clicked = false;
 $(".unitGroup").click(function () {
   let text = $(this).text().trim();
-  if (text === "50g" && currentGold >= 50) {
+  if (text === "50g" && currentGold >= 50 && !isUnit1Clicked && !isUnit2Clicked) {
     isUnit1Clicked = true;
     currentUnitSelected = this;
     //make this opacity 0.5
-    $(this).css("opacity", "0.5");
-  } else if (text === "100g" && currentGold >= 100) {
+    $(this).css("opacity", "0.4");
+  } else if (text === "100g" && currentGold >= 100 && !isUnit1Clicked && !isUnit2Clicked) {
     isUnit2Clicked = true;
     currentUnitSelected = this;
     //make this opacity 0.5
-    $(this).css("opacity", "0.5");
+    $(this).css("opacity", "0.4");
+  } else {
+    isUnit1Clicked = false;
+    isUnit2Clicked = false;
+    $(this).css("opacity", "1");
   }
 });
 //if click anywhere on the screen
@@ -82,7 +86,7 @@ $(document).click(function (e) {
     //add square1 to position top =0, left=0
     let realX = Math.floor((x - startX) / width);
     let realY = Math.floor((y - startY) / width);
-    if (realX >= 0 && realX < 11 && realY >= 0 && realY < 5) {
+    if (realX >= 0 && realX < 11 && realY >= 0 && realY < 5 && board[realY][realX] === 0) {
       if (currentGold >= 50) {
         new Sunflower(realX, realY);
         // var newImage = document.createElement("img");
@@ -110,13 +114,6 @@ $(document).click(function (e) {
     if (realX >= 0 && realX < 11 && realY >= 0 && realY < 5 && board[realY][realX] === 0) {
       if (currentGold >= 100) {
         new Plant(realX, realY);
-        // var newImage = document.createElement("img");
-        // newImage.setAttribute("src", "./images/100g.gif?" + Math.random());
-        // newImage.setAttribute("class", "peashooter");
-        // newImage.style.left = startX + realX * width + 30 + "px";
-        // newImage.style.top = startY + realY * width + 30 + "px";
-        // newImage.width = newImage.height = 60;
-        // document.body.appendChild(newImage);
         currentGold -= 100;
         $(".gold-number").text(currentGold);
       }
@@ -187,7 +184,7 @@ class Zombie {
     if (plantSameRowLists.length > 0) {
       for (let i = 0; i < plantSameRowLists.length; i++) {
         if (Math.abs(plantSameRowLists[i].x - thisZombie.x) < width / 2) {
-          this.unitToAttack = plantSameRowLists[0];
+          this.unitToAttack = plantSameRowLists[i];
           console.log("Change state to attack");
           this.zombieImage.setAttribute("src", this.image2);
         }
@@ -197,7 +194,7 @@ class Zombie {
   spawn() {
     window.setTimeout(() => {
       this.draw();
-    }, randomIntFromInterval(1000, 10000));
+    }, randomIntFromInterval(1000, 20000));
   }
   draw() {
     var entireZombieBody = document.createElement("div");
@@ -252,7 +249,7 @@ class Plant {
     this.image2 = image2;
     this.isActive = true;
     this.draw();
-    this.shootWithInterval();
+    this.doSomethingWithInterval();
   }
   takeDamage(damage) {
     this.health -= damage;
@@ -266,7 +263,7 @@ class Plant {
     plantLists.splice(plantLists.indexOf(this), 1);
     board[this.boardLocation.y][this.boardLocation.x] = 0;
   }
-  shootWithInterval() {
+  doSomethingWithInterval() {
     var plant = this;
     window.setInterval(function () {
       shoot(plant);
@@ -362,7 +359,7 @@ class Sunflower extends Plant {
   constructor(x, y, bulletSpeed = 30, health = 100, damage = 10, image = "./images/50g.gif") {
     super(x, y, bulletSpeed, health, damage, image);
   }
-  shootWithInterval() {
+  doSomethingWithInterval() {
     var plant = this;
     window.setInterval(function () {
       produceSunflower(plant);
@@ -386,7 +383,7 @@ class Sun {
     this.sunBody = document.createElement("img");
     this.sunBody.setAttribute("src", "./images/sun.png");
     this.sunBody.setAttribute("class", "sun");
-    this.sunBody.width = this.sunBody.height = 50;
+    this.sunBody.width = this.sunBody.height = 60;
     this.sunBody.style.left = this.x + "px";
     this.sunBody.style.top = this.y + "px";
     var thisSun = this;
@@ -400,7 +397,7 @@ class Sun {
     document.body.appendChild(this.sunBody);
   }
   die() {
-    this.sunBody.style.opacity = "0";
+    this.sunBody.style.display = "none";
     this.isActive = false;
   }
   startFalling() {
@@ -427,11 +424,11 @@ function moveZombie() {
   }
 }
 //create Suns
-window.setInterval(createSun, 3000);
+window.setInterval(createSun, 10000);
 function createSun() {
   setTimeout(() => {
     new Sun();
-  }, randomIntFromInterval(0, 3000));
+  }, randomIntFromInterval(0, 10000));
 }
 
 function randomIntFromInterval(min, max) {
@@ -451,21 +448,21 @@ for (let i = 0; i < 15; i++) {
 for (const zombie of zombieWave1) {
   zombie.spawn();
 }
-//spawn zombieWave2 after 20 seconds
+//spawn zombieWave2 after 30 seconds
 setTimeout(() => {
   for (const zombie of zombieWave2) {
     zombie.spawn();
   }
-}, 20000);
+}, 30000);
 class LawnMover {
-  constructor(x, y, speed = 10, image = "./images/lawnmover.png") {
+  constructor(x, y, speed = 30, image = "./images/lawnmover.png") {
     this.x = startX + x * width;
     this.y = startY + y * width;
     this.speed = speed;
     this.image = image;
     this.isActive = true;
     this.draw();
-    // this.moveWithInterval();
+    this.moveWithInterval();
   }
   moveWithInterval() {
     var lawnmover = this;
@@ -477,9 +474,9 @@ class LawnMover {
     this.lawnmoverBody = document.createElement("img");
     this.lawnmoverBody.setAttribute("src", this.image);
     this.lawnmoverBody.setAttribute("class", "lawnmover");
-    this.lawnmoverBody.width = this.lawnmoverBody.height = 100;
+    this.lawnmoverBody.width = this.lawnmoverBody.height = 50;
     this.lawnmoverBody.style.left = this.x + "px";
-    this.lawnmoverBody.style.top = this.y + "px";
+    this.lawnmoverBody.style.top = this.y + 20 + "px";
     document.body.appendChild(this.lawnmoverBody);
     lawnmoverLists.push(this);
   }
@@ -503,4 +500,4 @@ function moveLawnMover() {
     lawnmover.move();
   }
 }
-// new LawnMover(0, 0);
+// new LawnMover(-1, 0);
